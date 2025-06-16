@@ -302,7 +302,7 @@ st.markdown("""
 # Streamlit Interface
 # Display school logo before the title
 st.image(
-    "school_logo.jpg",  # Thay bằng đường dẫn tới file .jpg của bạn
+    "school_logo1.jpg",  # Thay bằng đường dẫn tới file .jpg của bạn
     width=200,  # Điều chỉnh chiều rộng hình ảnh (tùy chọn)
     use_container_width=True,
     clamp=True,
