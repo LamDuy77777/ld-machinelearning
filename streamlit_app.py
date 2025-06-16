@@ -272,13 +272,15 @@ class MyDataset(Dataset):
 st.markdown("""
     <style>
     .stApp {
-        background-color: ; /* Light blue background */
+        background-color: #ADD8E6; /* Light blue background */
     }
-    h1 {
-        color: #ADD8E6; /* Navy blue for title */
+    /* Áp dụng cho tiêu đề chính (st.title) */
+    .css-1d5h8h1 {
+        color: #000080 !important; /* Navy blue with !important to override default */
     }
-    h2 {
-        color: #ADD8E6; /* Navy blue for subtitles */
+    /* Áp dụng cho tiêu đề phụ (st.subheader) */
+    .css-1d8s0b8 {
+        color: #000080; /* Navy blue for subtitles */
     }
     .centered-image {
         display: block;
