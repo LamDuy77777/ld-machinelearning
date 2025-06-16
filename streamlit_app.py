@@ -268,7 +268,7 @@ class MyDataset(Dataset):
     def __len__(self):
         return len(self.X)
 
-# Custom CSS for background and title color
+# Custom CSS for background, title color, and centering image
 st.markdown("""
     <style>
     .stApp {
@@ -277,10 +277,29 @@ st.markdown("""
     h1, h2 {
         color: #000080; /* Navy blue for titles */
     }
+    .centered-image {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
     </style>
 """, unsafe_allow_html=True)
 
 # Streamlit Interface
+# Display school logo before the title
+st.image(
+    "school_logo.jpg",  # Thay bằng đường dẫn tới file .jpg của bạn
+    caption="Logo of [Your School Name]",  # Thay bằng tên trường của bạn
+    width=200,  # Điều chỉnh chiều rộng hình ảnh (tùy chọn)
+    use_column_width=False,
+    clamp=True,
+    output_format="JPEG",
+    channels="RGB"
+)
+
+# Add custom CSS to center the image
+st.markdown('<img src="school_logo.jpg" class="centered-image">', unsafe_allow_html=True)
+
 st.title("SMILES Prediction with XGBoost and GIN")
 
 st.markdown("""
