@@ -304,18 +304,18 @@ st.image(
 
 
 
-st.title("SMILES Prediction with XGBoost and GIN")
+st.title("PREDICTING APELIN RECEPTOR AGONISTS ")
 
 st.markdown("""
-This application uses an XGBoost model to classify SMILES (0 or 1) and a GIN model to predict pEC50 values for all valid SMILES. Results include the Applicability Domain (AD) with a threshold SDC = 7.019561595570336e-06, labeling predictions as "Reliable" or "Unreliable". Choose an input method below to provide SMILES data.
+This application uses an XGBoost model to classify SMILES (0 or 1) and a GIN model to predict pEC50 values for all valid SMILES. Results include the Applicability Domain, labeling predictions as "Reliable" or "Unreliable". Choose an input method below to provide SMILES data.
 """, unsafe_allow_html=True)
 
 # Input Method Selection
 st.subheader("Select Input Method")
-input_type = st.radio("", ("Manual Input", "Upload CSV"), label_visibility="collapsed")
+input_type = st.radio("", ("Enter a list of SMILES", "Upload CSV"), label_visibility="collapsed")
 
 # Input Section
-if input_type == "Manual Input":
+if input_type == "Enter a list of SMILES":
     st.subheader("Enter SMILES")
     # Initialize session state for SMILES input
     if 'smiles_input' not in st.session_state:
@@ -325,7 +325,9 @@ if input_type == "Manual Input":
     if st.button("Example"):
         example_smiles = [
             "CC[C@H](C)c1ccc2oc(-c3cccc(NC(=O)COc4ccccc4[N+](=O)[O-])c3)nc2c1",
-            "CCOC(=O)c1c[nH]c(=O)c([C@H](CC(=O)NCCc2c[nH]c3ccccc23)c2cc(OC)c3c(c2)OCO3)c1O",
+            "Cc1ccc(-c2cn3cc(C(=O)N[C@H](C)c4cccnc4)ccc3n2)cc1C",
+            "Cc1ccc(-c2csc(Nc3ccc(Br)cn3)n2)c(C)c1",
+            "C[C@@H]1Sc2ccc(S(=O)(=O)[C@H](C)CC(=O)Nc3ccccc3F)cc2NC1=O",
             "O=CC#CC"
         ]
         st.session_state.smiles_input = "\n".join(random.sample(example_smiles, 3))
