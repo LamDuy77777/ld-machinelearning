@@ -272,7 +272,7 @@ class MyDataset(Dataset):
 st.markdown("""
     <style>
     .stApp {
-        background-color: #e6f0fa; /* Light blue background */
+        background-color: ; /* Light blue background */
     }
     h1, h2 {
         color: #000080; /* Navy blue for titles */
@@ -291,7 +291,7 @@ st.image(
     "school_logo.jpg",  # Thay bằng đường dẫn tới file .jpg của bạn
     # caption="Logo of [Your School Name]",  # Thay bằng tên trường của bạn
     width=200,  # Điều chỉnh chiều rộng hình ảnh (tùy chọn)
-    use_container_width=False,
+    use_container_width=True,
     clamp=True,
     output_format="JPEG",
     channels="RGB"
