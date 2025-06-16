@@ -275,7 +275,7 @@ st.markdown("""
         background-color: ; #ADD8E6/* Light blue background */
     }
     h1, h2 {
-        color: #000080; /* Navy blue for titles */
+        color: #ADD8E6; /* Navy blue for titles */
     }
     .centered-image {
         display: block;
@@ -297,8 +297,7 @@ st.image(
     channels="RGB"
 )
 
-# Add custom CSS to center the image
-st.markdown('<img src="school_logo.jpg" class="centered-image">', unsafe_allow_html=True)
+
 
 st.title("SMILES Prediction with XGBoost and GIN")
 
