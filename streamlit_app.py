@@ -268,19 +268,20 @@ class MyDataset(Dataset):
     def __len__(self):
         return len(self.X)
 
-# Custom CSS for background, title color, and centering image
+# Custom CSS for background, title color, centering image, and justified text
 st.markdown("""
     <style>
     .stApp {
         background-color: ; /* Light blue background */
     }
-    /* Áp dụng cho tiêu đề chính (st.title) */
     .css-1d5h8h1 {
-        color: #000080 !important; /* Navy blue with !important to override default */
+        color: #000080 !important; /* Navy blue for title */
+        text-align: justify !important; /* Justify title */
+        display: block; /* Ensure it behaves as a block element */
     }
-    /* Áp dụng cho tiêu đề phụ (st.subheader) */
-    .css-1d8s0b8 {
-        color: #000080; /* Navy blue for subtitles */
+    .justified-text {
+        text-align: justify !important;
+        text-justify: inter-word; /* Ensure proper justification for multiple lines */
     }
     .centered-image {
         display: block;
