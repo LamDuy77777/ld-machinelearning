@@ -438,6 +438,7 @@ if st.button("Run Prediction"):
 
 # New Section: Filtered Prediction Results
 st.subheader("Filtered Prediction Results")
+st.markdown('<div class="justified-text">Filtered results are dedicated to strong agonists with reliable predictions and EC50 <= 10 nM.</div>', unsafe_allow_html=True)
 if st.button("Show Filtered Results"):
     if st.session_state.result_df is not None:
         filtered_df = st.session_state.result_df[
