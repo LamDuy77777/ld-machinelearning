@@ -414,8 +414,8 @@ if st.button("Run Prediction"):
             result_df = pd.DataFrame({
                 'Original SMILES': valid_orig,
                 'Standardized SMILES': valid_std,
-                'XGBoost Prediction': xgb_predictions,
-                'pEC50 Prediction (GIN)': gin_predictions,
+                'Binary Prediction': xgb_predictions,
+                'pEC50 Prediction': gin_predictions,
                 'Applicability Domain': ad_labels
             })
 
