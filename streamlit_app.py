@@ -289,7 +289,7 @@ st.markdown("""
 # Display school logo before the title
 st.image(
     "school_logo.jpg",  # Thay bằng đường dẫn tới file .jpg của bạn
-    caption="Logo of [Your School Name]",  # Thay bằng tên trường của bạn
+    # caption="Logo of [Your School Name]",  # Thay bằng tên trường của bạn
     width=200,  # Điều chỉnh chiều rộng hình ảnh (tùy chọn)
     use_column_width=False,
     clamp=True,
