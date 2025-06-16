@@ -272,7 +272,7 @@ class MyDataset(Dataset):
 st.markdown("""
     <style>
     .stApp {
-        background-color: #ADD8E6; /* Light blue background */
+        background-color: ; /* Light blue background */
     }
     /* Áp dụng cho tiêu đề chính (st.title) */
     .css-1d5h8h1 {
