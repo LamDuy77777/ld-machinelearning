@@ -36,6 +36,10 @@ RDLogger.DisableLog('rdApp.*')
 # Define device
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
+# Initialize session state for result_df
+if 'result_df' not in st.session_state:
+    st.session_state.result_df = None
+
 # Function to standardize SMILES
 def standardize_smiles(batch):
     uc = rdMolStandardize.Uncharger()
@@ -268,10 +272,6 @@ class MyDataset(Dataset):
     def __len__(self):
         return len(self.X)
 
-# ... (Phần import và các định nghĩa hàm, lớp giữ nguyên)
-
-# ... (Phần import và các định nghĩa hàm, lớp giữ nguyên)
-
 # Custom CSS for background, title color, centering image, and justified text
 st.markdown("""
     <style>
@@ -419,6 +419,9 @@ if st.button("Run Prediction"):
                 'Applicability Domain': ad_labels
             })
 
+            # Store results in session state
+            st.session_state.result_df = result_df
+
             # Display results
             st.subheader("Prediction Results")
             st.markdown("Results for all valid SMILES:")
@@ -432,3 +435,23 @@ if st.button("Run Prediction"):
                 file_name="predictions.csv",
                 mime="text/csv"
             )
+
+# New Section: Filtered Prediction Results
+st.subheader("Filtered Prediction Results")
+if st.button("Show Filtered Results"):
+    if st.session_state.result_df is not None:
+        filtered_df = st.session_state.result_df[
+            (st.session_state.result_df['Binary Prediction'] == 1) &
+            (st.session_state.result_df['pEC50 Prediction'] >= 8) &
+            (st.session_state.result_df['Applicability Domain'] == 'Reliable')
+        ]
+        st.dataframe(filtered_df)
+        filtered_csv = filtered_df.to_csv(index=False)
+        st.download_button(
+            label="Download Filtered Results as CSV",
+            data=filtered_csv,
+            file_name="filtered_predictions.csv",
+            mime="text/csv"
+        )
+    else:
+        st.warning("Please run the prediction first.")
