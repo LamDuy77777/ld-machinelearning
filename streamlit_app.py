@@ -220,7 +220,7 @@ def load_gin_model():
         pooling_method=best_params['pooling_method']
     ).to(device)
     with open('GIN_597_562_cpu.pkl', 'rb') as f:
-        state_dict = torch.load(f, map_location=device)
+        state_dict = torch.load(f, map_location=cpu)
     model.load_state_dict(state_dict)
     model.eval()
     return model
