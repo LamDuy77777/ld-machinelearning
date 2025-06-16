@@ -268,20 +268,23 @@ class MyDataset(Dataset):
     def __len__(self):
         return len(self.X)
 
-# Custom CSS for background, title color, centering image, and layout
+# ... (Phần import và các định nghĩa hàm, lớp giữ nguyên)
+
+# Custom CSS for background, title color, centering image, and justified text
 st.markdown("""
     <style>
     .stApp {
         background-color: #ADD8E6; /* Light blue background */
     }
-    .title-container {
-        display: flex;
-        justify-content: space-between; /* Spread content evenly */
-        align-items: center;
+    .justified-title {
+        text-align: justify !important;
+        text-justify: inter-word; /* Ensure proper justification */
         width: 100%;
+        display: block;
     }
-    .text-container {
-        text-align: center; /* Center text within the container */
+    .justified-text {
+        text-align: justify !important;
+        text-justify: inter-word; /* Ensure proper justification for multiple lines */
         width: 100%;
     }
     .css-1d5h8h1 {
@@ -306,14 +309,11 @@ st.image(
     channels="RGB"
 )
 
-# Use columns to spread title and description evenly
-col1, col2, col3 = st.columns([1, 2, 1])  # Adjust column widths as needed
+# Title with justified text
+st.markdown('<div class="justified-title"><h1 class="css-1d5h8h1">PREDICTING APELIN RECEPTOR AGONISTS 🔬</h1></div>', unsafe_allow_html=True)
 
-with col2:  # Center the title in the middle column
-    st.markdown('<div class="title-container"><h1 class="css-1d5h8h1">PREDICTING APELIN RECEPTOR AGONISTS 🔬</h1></div>', unsafe_allow_html=True)
-
-# Description spread across the layout
-st.markdown('<div class="text-container">The substances will be standardized based on the input data and then predicted by the XGBoost model with values of 0 and 1, where 0 represents weak and moderate agonists, and 1 represents strong agonists. Subsequently, the model will predict the pEC50 values for all substances. The results will be displayed in a table, including the applicability domain of the classification model, with predictions labeled as "Reliable" or "Unreliable". Choose an input method below to provide SMILES data.</div>', unsafe_allow_html=True)
+# Description with justified text
+st.markdown('<div class="justified-text">The substances will be standardized based on the input data and then predicted by the XGBoost model with values of 0 and 1, where 0 represents weak and moderate agonists, and 1 represents strong agonists. Subsequently, the model will predict the pEC50 values for all substances. The results will be displayed in a table, including the applicability domain of the classification model, with predictions labeled as "Reliable" or "Unreliable". Choose an input method below to provide SMILES data.</div>', unsafe_allow_html=True)
 
 # Input Method Selection
 st.subheader("Select Input Method")
