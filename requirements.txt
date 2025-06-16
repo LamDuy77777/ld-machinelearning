@@ -1,1 +1,10 @@
-streamlit>=1.26.0
+streamlit
+pandas
+numpy
+rdkit
+scikit-learn
+tqdm
+xgboost
+chemprop
+torch
+torch_geometric
