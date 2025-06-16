@@ -276,7 +276,7 @@ class MyDataset(Dataset):
 st.markdown("""
     <style>
     .stApp {
-        background-color: #ECECEC; /* Light blue background */
+        background-color: ; /* Light blue background */
     }
     .centered-title {
         text-align: center !important; /* Center the title */
