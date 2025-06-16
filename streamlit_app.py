@@ -278,7 +278,7 @@ st.markdown("""
     }
     .justified-title {
         text-align: justify !important;
-        text-justify: inter-word; /* Ensure proper justification */
+        text-justify: space-between; /* Ensure proper justification */
         width: 100%;
         display: block;
     }
