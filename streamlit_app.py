@@ -291,14 +291,14 @@ st.image(
     "school_logo.jpg",  # Thay bằng đường dẫn tới file .jpg của bạn
     # caption="Logo of [Your School Name]",  # Thay bằng tên trường của bạn
     width=200,  # Điều chỉnh chiều rộng hình ảnh (tùy chọn)
-    use_column_width=False,
+    # use_column_width=False,
     clamp=True,
     output_format="JPEG",
     channels="RGB"
 )
 
 # Add custom CSS to center the image
-st.markdown('<img src="school_logo.jpg" class="centered-image">', unsafe_allow_html=True)
+# st.markdown('<img src="school_logo.jpg" class="centered-image">', unsafe_allow_html=True)
 
 st.title("SMILES Prediction with XGBoost and GIN")
 
