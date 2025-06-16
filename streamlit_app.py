@@ -331,7 +331,7 @@ if input_type == "Enter a list of SMILES":
     if st.button("Example"):
         example_smiles = [
             "CC[C@H](C)c1ccc2oc(-c3cccc(NC(=O)COc4ccccc4[N+](=O)[O-])c3)nc2c1",
-            "S=C=Nc1c(OC)nccc1",
+            "O=C(O)C1CC(C)(C)C1",
             "Cc1ccc(-c2csc(Nc3ccc(Br)cn3)n2)c(C)c1",
             "C[C@@H]1Sc2ccc(S(=O)(=O)[C@H](C)CC(=O)Nc3ccccc3F)cc2NC1=O",
             "O=CC#CC"
