@@ -304,11 +304,10 @@ st.image(
 
 
 
-st.title("PREDICTING APELIN RECEPTOR AGONISTS ")
+st.title("PREDICTING APELIN RECEPTOR AGONISTS 🔬 ")
 
 st.markdown("""
-This application uses an XGBoost model to classify SMILES (0 or 1) and a GIN model to predict pEC50 values for all valid SMILES. Results include the Applicability Domain, labeling predictions as "Reliable" or "Unreliable". Choose an input method below to provide SMILES data.
-""", unsafe_allow_html=True)
+The substances will be standardized based on the input data and then predicted by the XGBoost model with values of 0 and 1, where 0 represents weak and moderate agonists, and 1 represents strong agonists. Subsequently, the model will predict the pEC50 values for all substances. The results will be displayed in a table, including the applicability domain of the classification model, with predictions labeled as "Reliable" or "Unreliable". Choose an input method below to provide SMILES data.""", unsafe_allow_html=True)
 
 # Input Method Selection
 st.subheader("Select Input Method")
