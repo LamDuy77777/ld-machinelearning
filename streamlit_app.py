@@ -323,11 +323,12 @@ input_type = st.radio("", ("Enter a list of SMILES", "Upload CSV"), label_visibi
 # Input Section
 if input_type == "Enter a list of SMILES":
     st.subheader("Enter SMILES")
-    # Initialize session state for SMILES input
-    if 'smiles_input' not in st.session_state:
-        st.session_state.smiles_input = ""
-    
-    # Example button to populate 3 random valid SMILES
+
+    # Khởi tạo state cho text_area
+    if "smiles_text_area" not in st.session_state:
+        st.session_state.smiles_text_area = ""
+
+    # Nút Example: ghi trực tiếp vào state của text_area
     if st.button("Example"):
         example_smiles = [
             "CC[C@H](C)c1ccc2oc(-c3cccc(NC(=O)COc4ccccc4[N+](=O)[O-])c3)nc2c1",
@@ -335,31 +336,18 @@ if input_type == "Enter a list of SMILES":
             "C[C@@H]1Sc2ccc(S(=O)(=O)[C@H](C)CC(=O)Nc3ccccc3F)cc2NC1=O",
             "O=CC#CC"
         ]
-        st.session_state.smiles_input = "\n".join(random.sample(example_smiles, 3))
-    
+        st.session_state.smiles_text_area = "\n".join(random.sample(example_smiles, 3))
+
+    # Text area dùng đúng key, KHÔNG cần value=
     smiles_input = st.text_area(
         "Input SMILES (one per line):",
-        value=st.session_state.smiles_input,
         height=200,
         placeholder="e.g., CC[C@H](C)c1ccc2oc(-c3cccc(NC(=O)COc4ccccc4[N+](=O)[O-])c3)nc2c1",
         key="smiles_text_area"
     )
-    # Update session state with user input
-    st.session_state.smiles_input = smiles_input
+
+    # Tạo list SMILES từ nội dung text_area
     smiles_list = [s.strip() for s in smiles_input.split('\n') if s.strip()]
-else:
-    st.subheader("Upload CSV File")
-    column_name = st.text_input("Column name containing SMILES:", "SMILES", placeholder="e.g., SMILES")
-    uploaded_file = st.file_uploader("Choose a CSV file", type="csv")
-    if uploaded_file:
-        df = pd.read_csv(uploaded_file)
-        if column_name in df.columns:
-            smiles_list = df[column_name].tolist()
-        else:
-            st.error(f"Column '{column_name}' not found in the CSV file.")
-            st.stop()
-    else:
-        smiles_list = []
 
 # Predict Button
 if st.button("Run Prediction"):
