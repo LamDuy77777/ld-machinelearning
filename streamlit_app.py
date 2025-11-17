@@ -336,7 +336,7 @@ if input_type == "Enter a list of SMILES":
             "C[C@@H]1Sc2ccc(S(=O)(=O)[C@H](C)CC(=O)Nc3ccccc3F)cc2NC1=O",
             "O=CC#CC"
         ]
-        st.session_state.smiles_text_area = "\n".join(random.sample(example_smiles, 3))
+        st.session_state.smiles_text_area = "\n".join(random.sample(example_smiles, 4))
 
     # Text area dùng đúng key, KHÔNG cần value=
     smiles_input = st.text_area(
